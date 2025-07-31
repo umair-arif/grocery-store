@@ -5,7 +5,9 @@ import UserModel from "../models/userModel.js";
 
 export const placedOrderCOD = async (req, res) => {
   try {
-    const { userId, items, address } = req.body;
+    const { items, address } = req.body;
+    const userId = req.userId;
+    console.log("user:", userId);
     if (!userId || items.length === 0) {
       return res.json({ success: false, message: "Invalid data" });
     }
@@ -32,7 +34,8 @@ export const placedOrderCOD = async (req, res) => {
 
 export const placedOrderStripe = async (req, res) => {
   try {
-    const { userId, items, address } = req.body;
+    const { items, address } = req.body;
+    const userId = req.userId;
     const { origin } = req.headers;
     if (!userId || items.length === 0) {
       return res.json({ success: false, message: "Invalid data" });

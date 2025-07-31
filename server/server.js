@@ -20,7 +20,7 @@ await connectCloudinary();
 
 const allowOrigins = [
   "http://localhost:5173",
-  "https://grocery-store-ten-nu.vercel.app/",
+  "https://grocery-store-ten-nu.vercel.app",
 ];
 
 app.post("/stripe", express.raw({ type: "application/json" }), stripeWebhooks);
